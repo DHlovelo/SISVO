@@ -1,79 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
-/* =====================================================================
-   PANTALLA DIVIDIDA · con los temas y opciones del CSS anterior
-   Panel de color con la bienvenida + formulario al otro lado.
-   ---------------------------------------------------------------------
-   ✏️  PANEL DE CONTROL  (todo se cambia desde aquí)
-   Combina estos atributos en la etiqueta <html>:
 
-   <html data-theme="cereza" data-estilo="cristal" data-esquinas="redondas" data-posicion="izquierda">
-
-   data-theme     → aurora (defecto) · atardecer · bosque · oceano · lavanda
-                    medianoche · cereza · carbon · claro · cielo
-   data-posicion  → derecha (defecto) · izquierda · centro
-                    (dónde va el formulario; "centro" = tarjeta sobre fondo de color)
-   data-estilo    → plano (defecto) · cristal · solido · contorno
-                    (aspecto de la caja del formulario)
-   data-inputs    → relleno (defecto) · linea · contorno
-   data-esquinas  → suaves (defecto) · rectas · redondas
-   data-decoracion→ si (defecto) · no   (círculos del panel)
-
-   O edita directamente las variables de abajo.
-   ===================================================================== */
 :root {
-    /* Tipografía */
+ 
     --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --title-size: clamp(38px, 4.6vw, 62px);
     --title-weight: 800;
 
-    /* Colores base del lado del formulario */
-    --bg: #0f1022;                      /* fondo de la página */
-    --glow-1: #8b7cf6;                  /* luz difusa 1 */
-    --glow-2: #4fd1b5;                  /* luz difusa 2 */
-    --glow-a: 22%;                      /* intensidad luz 1 (0% = apagada) */
-    --glow-b: 16%;                      /* intensidad luz 2 */
-    --text: #f2f0ff;                    /* texto principal */
-    --muted: #a9acce;                   /* texto secundario / labels */
-    --heading: #ffffff;                 /* título del formulario */
-    --scheme: dark;                     /* dark o light (afecta calendario) */
+    
+    --bg: #0f1022;                      
+    --glow-1: #8b7cf6;                  
+    --glow-2: #4fd1b5;                 
+    --glow-a: 22%;                      
+    --glow-b: 16%;                      
+    --text: #f2f0ff;                   
+    --muted: #a9acce;                  
+    --heading: #ffffff;                 
+    --scheme: dark;                     
     --calendar-filter: invert(0.85);
     --line: color-mix(in srgb, var(--text) 12%, transparent);
 
-    /* Color de marca (botón, enlaces, foco) */
     --accent: #7ee8c9;
     --accent-2: #7aa2ff;
-    --on-accent: #0f1022;               /* texto sobre el botón */
+    --on-accent: #0f1022;              
 
-    /* Panel de color (lado de la bienvenida) */
+    
     --panel-from: #5b45c9;
     --panel-to: #1f8a82;
     --panel-angle: 150deg;
     --panel-text: #ffffff;
-    --deco-opacity: 0.14;               /* intensidad de los círculos */
+    --deco-opacity: 0.14;              
 
-    /* Caja del formulario (se usa en estilo cristal / solido / contorno) */
+    
     --card-bg: rgba(28, 30, 58, 0.72);
     --card-border: rgba(255, 255, 255, 0.10);
-    --card-max: 520px;                  /* ancho máximo */
+    --card-max: 520px;                  
     --card-padding: 40px;
-    --blur: 20px;                       /* desenfoque de cristal */
+    --blur: 20px;                      
     --shadow-color: rgba(0, 0, 0, 0.65);
     --radius-card: 24px;
 
-    /* Campos y botón */
+  
     --input-bg: rgba(255, 255, 255, 0.06);
     --input-focus-bg: rgba(18, 20, 40, 0.75);
     --input-border: rgba(255, 255, 255, 0.14);
     --placeholder: #7d80a6;
     --radius-input: 12px;
     --radius-btn: 999px;
-    --form-gap: 18px 16px;              /* separación entre campos */
+    --form-gap: 18px 16px;            
 
-    /* Proporción panel / formulario */
+   
     --cols: minmax(0, 1fr) minmax(0, 1.1fr);
 
-    /* Caja del formulario en estilo "plano" (sin tarjeta) */
+   
     --box-bg: transparent;
     --box-border: transparent;
     --box-shadow: none;
@@ -82,7 +61,7 @@
     --box-padding: 56px 24px;
 }
 
-/* ============================ TEMAS OSCUROS ============================ */
+
 
 :root[data-theme="atardecer"] {
     --bg: #1a1020;
@@ -219,7 +198,7 @@
     --placeholder: #78716c;
 }
 
-/* ============================ TEMAS CLAROS ============================ */
+
 
 :root[data-theme="claro"] {
     --bg: #f6f3ff;
