@@ -86,3 +86,54 @@ main {
     font-size: 2.8rem;
   }
 }
+
+.tarjeta-beca {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tarjeta-beca:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.badge-academica {
+  background-color: rgba(110, 168, 254, 0.25);
+  color: #9ec5fe;
+}
+.badge-deportiva {
+  background-color: rgba(32, 201, 151, 0.25);
+  color: #75d1b8;
+}
+.badge-social {
+  background-color: rgba(255, 193, 7, 0.25);
+  color: #ffd76a;
+}
+.badge-economica {
+  background-color: rgba(220, 53, 69, 0.25);
+  color: #f19aa4;
+}
+
+.filtro-btn.activo {
+  background-color: var(--sisvov-acento);
+  border-color: var(--sisvov-acento);
+  color: #111;
+}
+
+.form-control:focus {
+  background-color: transparent;
+  color: var(--sisvov-texto);
+  border-color: var(--sisvov-acento);
+  box-shadow: 0 0 0 0.2rem rgba(110, 168, 254, 0.15);
+}
+.input-group-text {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.form-control {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+.form-control::placeholder {
+  color: var(--sisvov-texto-tenue, #9aa3ad);
+}
+
+.modal-content {
+  color: var(--sisvov-texto);
+}
