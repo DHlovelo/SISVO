@@ -1,108 +1,137 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
+
 :root {
-    /* Tipografía */
+    
     --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --title-size: clamp(38px, 4.6vw, 62px);
+    --title-weight: 800;
 
-    /* Colores base */
-    --bg: #1f212e;                    
-    --glow-1: #fdb03c;                 
-    --glow-2: #5d67f5;                 
-    --text: #f2f0ff;                    
-    --muted: #fafafa;                  
-    --heading: #ffffff;                 
-
-    
-    --accent: #f3c737;
-    --accent-2: #ff6262;
-    --on-accent: #0f1022;               
+   
+    --panel-from: #c92a5b;
+    --panel-to: #ee5a24;
+    --panel-angle: 150deg;
+    --panel-text: #ffffff;
+    --deco-opacity: 0.14;              
 
     
-    --card-bg: rgba(27, 27, 31, 0.671);
-    --card-border: rgba(32, 31, 31, 0.1);
-    --card-max: 600px;                
-    --card-padding: 40px;
-    --radius-card: 24px;
-    --blur: 20px;                       
+    --page-bg: #fffaf6;
+    --text: #2b2430;
+    --heading: #1f1a24;
+    --muted: #6f6577;
+    --line: rgba(43, 36, 48, 0.10);
 
     
-    --input-bg: rgba(26, 27, 26, 0.06);
-    --input-border: rgba(48, 49, 48, 0.14);
-    --placeholder: #b4b4b4;
-    --radius-input: 22px;
+    --brand: #d6336c;
+    --on-brand: #ffffff;             
+    --brand-hover: color-mix(in srgb, var(--brand) 85%, black);
 
-    
-    --form-align: flex-end;
-    --form-offset: 35%;
+   
+    --input-bg: #f4ede8;
+    --input-focus-bg: #ffffff;
+    --input-border: rgba(43, 36, 48, 0.18);
+    --placeholder: #a2989b;
+    --radius-input: 12px;
+    --radius-btn: 999px;
+    --form-gap: 18px 16px;
+    --scheme: light;                  
+    --calendar-filter: none;
+
+ 
+    --cols: minmax(0, 1fr) minmax(0, 1.1fr);   
+    --card-max: 500px;
+    --card-padding: 56px 48px;
 }
 
 
 
-:root[data-theme="atardecer"] {
-    --bg: #1a1020;
-    --glow-1: #ff7a6b;
-    --glow-2: #ffb86b;
-    --text: #fff1ec;
-    --muted: #d1aeb4;
-    --accent: #ffb27a;
-    --accent-2: #ff6f91;
-    --on-accent: #2a1020;
-    --card-bg: rgba(46, 24, 42, 0.72);
-    --card-border: rgba(255, 220, 200, 0.12);
-    --input-bg: rgba(255, 235, 225, 0.06);
-    --input-border: rgba(255, 220, 200, 0.16);
-    --placeholder: #a6838e;
+:root[data-theme="oceano"] {
+    --panel-from: #0b5f8a;
+    --panel-to: #168f95;
+    --brand: #0f7ea6;
+    --page-bg: #f4fafc;
+    --text: #16303a;
+    --heading: #0e2630;
+    --muted: #5d7480;
+    --input-bg: #e8f1f5;
+    --placeholder: #93a8b2;
 }
 
 :root[data-theme="bosque"] {
-    --bg: #0c1712;
-    --glow-1: #3ecf8e;
-    --glow-2: #d9f27a;
-    --text: #eefaf2;
-    --muted: #a2c2b0;
-    --accent: #8be8a8;
-    --accent-2: #d4f07a;
-    --on-accent: #0c1712;
-    --card-bg: rgba(18, 38, 30, 0.74);
-    --card-border: rgba(200, 255, 220, 0.12);
-    --input-bg: rgba(220, 255, 235, 0.06);
-    --input-border: rgba(200, 255, 220, 0.16);
-    --placeholder: #6f9482;
+    --panel-from: #14532d;
+    --panel-to: #3d8b37;
+    --brand: #1f7a3f;
+    --page-bg: #f6faf5;
+    --text: #1d2e22;
+    --heading: #12231a;
+    --muted: #65796b;
+    --input-bg: #ecf3ea;
+    --placeholder: #98aa9c;
 }
 
-:root[data-theme="oceano"] {
-    --bg: #0b0f17;
-    --glow-1: #90cdf4;
-    --glow-2: #63b3ed;
-    --text: #e9e5e3;
-    --muted: #94a3b8;
-    --accent: #90cdf4;
-    --accent-2: #63b3ed;
-    --on-accent: #0f172a;
-    --card-bg: rgba(22, 28, 39, 0.80);
-    --card-border: rgba(255, 255, 255, 0.10);
-    --input-bg: rgba(15, 23, 42, 0.65);
-    --input-border: rgba(255, 255, 255, 0.12);
-    --placeholder: #64748b;
+:root[data-theme="uva"] {
+    --panel-from: #4a2fbd;
+    --panel-to: #9b4de0;
+    --brand: #6a3de8;
+    --page-bg: #faf7ff;
+    --text: #2a2340;
+    --heading: #1c1632;
+    --muted: #70688a;
+    --input-bg: #f0eafa;
+    --placeholder: #a29bb8;
 }
 
-:root[data-theme="lavanda"] {
-    --bg: #17102a;
-    --glow-1: #c084fc;
-    --glow-2: #f0abfc;
-    --text: #f6efff;
-    --muted: #bfa9dc;
-    --accent: #d8b4fe;
-    --accent-2: #f0a6ff;
-    --on-accent: #1d1033;
-    --card-bg: rgba(40, 26, 68, 0.74);
-    --card-border: rgba(236, 220, 255, 0.12);
-    --input-bg: rgba(245, 235, 255, 0.07);
-    --input-border: rgba(236, 220, 255, 0.16);
-    --placeholder: #8f7bb0;
+:root[data-theme="sol"] {
+    --panel-from: #ffb703;
+    --panel-to: #ff8a00;
+    --panel-text: #2a1d00;
+    --brand: #ffb703;
+    --on-brand: #2a1d00;
+    --page-bg: #fffcf2;
+    --text: #2e2710;
+    --heading: #221b08;
+    --muted: #7a6f52;
+    --input-bg: #f7f0dc;
+    --placeholder: #aa9f80;
 }
 
+:root[data-theme="noche"] {
+    --panel-from: #1f2a5a;
+    --panel-to: #4b2a7a;
+    --deco-opacity: 0.10;
+    --page-bg: #12131a;
+    --text: #eceaf5;
+    --heading: #ffffff;
+    --muted: #a3a7c4;
+    --line: rgba(255, 255, 255, 0.10);
+    --brand: #8ab4ff;
+    --on-brand: #0b1030;
+    --input-bg: rgba(255, 255, 255, 0.07);
+    --input-focus-bg: rgba(255, 255, 255, 0.11);
+    --input-border: rgba(255, 255, 255, 0.20);
+    --placeholder: #7479a0;
+    --scheme: dark;
+    --calendar-filter: invert(0.85);
+}
 
+/* ======================= ESQUINAS Y DECORACIÓN ======================= */
+
+:root[data-esquinas="rectas"] {
+    --radius-input: 4px;
+    --radius-btn: 4px;
+}
+
+:root[data-esquinas="redondas"] {
+    --radius-input: 18px;
+    --radius-btn: 999px;
+}
+
+:root[data-decoracion="no"] .welcome-text::before,
+:root[data-decoracion="no"] .welcome-text::after {
+    display: none;
+}
+
+/* ============================ ESTILOS BASE ============================ */
 
 * {
     margin: 0;
@@ -111,91 +140,118 @@
     font-family: var(--font);
 }
 
+::selection {
+    background: color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
 body {
-    background-color: var(--bg);
-    background-image:
-        radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--glow-1) 22%, transparent) 0%, transparent 45%),
-        radial-gradient(circle at 85% 80%, color-mix(in srgb, var(--glow-2) 16%, transparent) 0%, transparent 45%);
-    background-attachment: fixed;
+    background: var(--page-bg);
     color: var(--text);
     min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: var(--form-align);
-    padding: 30px var(--form-offset) 30px 30px;
+    display: grid;
+    grid-template-columns: var(--cols);
+    align-items: stretch;
     overflow-x: hidden;
 }
 
-/* ---------- Texto de bienvenida ---------- */
+/* ---------- Panel de color / bienvenida ---------- */
 
 .welcome-text {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 64px;
+    max-width: none;
+    background: linear-gradient(var(--panel-angle), var(--panel-from) 0%, var(--panel-to) 100%);
+    color: var(--panel-text);
+}
+
+.welcome-text::before,
+.welcome-text::after {
+    content: "";
     position: absolute;
-    top: 64px;
-    left: 64px;
-    max-width: 440px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.welcome-text::before {
+    width: 440px;
+    height: 440px;
+    right: -150px;
+    bottom: -150px;
+    background: #ffffff;
+    opacity: var(--deco-opacity);
+}
+
+.welcome-text::after {
+    width: 190px;
+    height: 190px;
+    top: -70px;
+    right: 14%;
+    border: 30px solid #ffffff;
+    opacity: var(--deco-opacity);
+}
+
+.welcome-text > * {
+    position: relative;
+    z-index: 1;
 }
 
 .welcome-text h2 {
-    font-size: 52px;
-    font-weight: 800;
-    line-height: 1.08;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
-    background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: var(--accent);               
+    font-size: var(--title-size);
+    font-weight: var(--title-weight);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: var(--panel-text);
 }
 
 .welcome-text p {
-    font-size: 17px;
-    color: var(--muted);
+    font-size: 18px;
     line-height: 1.7;
     font-weight: 500;
+    max-width: 420px;
+    color: var(--panel-text);
+    opacity: 0.92;
 }
 
-
+/* ---------- Formulario ---------- */
 
 .register-box {
-    background: var(--card-bg);
-    backdrop-filter: blur(var(--blur));
-    -webkit-backdrop-filter: blur(var(--blur));
+    align-self: center;
+    justify-self: center;
     width: 100%;
     max-width: var(--card-max);
     padding: var(--card-padding);
-    border-radius: var(--radius-card);
-    border: 1px solid var(--card-border);
-    box-shadow:
-        0 30px 60px -20px rgba(0, 0, 0, 0.65),
-        0 0 40px color-mix(in srgb, var(--accent) 8%, transparent);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    animation: aparecer 0.6s ease-out both;
-}
-
-.register-box:hover {
-    border-color: color-mix(in srgb, var(--accent) 35%, transparent);
-    box-shadow:
-        0 30px 60px -20px rgba(0, 0, 0, 0.65),
-        0 0 50px color-mix(in srgb, var(--accent) 14%, transparent);
+    background: transparent;
+    animation: subir 0.6s ease-out both;
 }
 
 .register-box h3 {
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 30px;
+    font-weight: 800;
     color: var(--heading);
-    margin-bottom: 26px;
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
     text-align: left;
-    letter-spacing: -0.3px;
 }
 
-
+.register-box h3::after {
+    content: "";
+    display: block;
+    width: 52px;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--brand), var(--panel-to));
+}
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px 18px;
+    gap: var(--form-gap);
     margin-bottom: 10px;
 }
 
@@ -211,20 +267,20 @@ body {
 .input-group label {
     margin-bottom: 7px;
     font-size: 13px;
+    font-weight: 700;
     color: var(--muted);
-    font-weight: 600;
     letter-spacing: 0.2px;
 }
 
 .input-group input {
     width: 100%;
-    padding: 13px 16px;
-    border: 1.5px solid var(--input-border);
+    padding: 14px 16px;
+    border: 2px solid transparent;
     border-radius: var(--radius-input);
     outline: none;
     background-color: var(--input-bg);
     color: var(--text);
-    font-size: 14.5px;
+    font-size: 15px;
     transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
@@ -233,64 +289,112 @@ body {
 }
 
 .input-group input:hover {
-    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    border-color: color-mix(in srgb, var(--brand) 30%, transparent);
 }
 
 .input-group input:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent);
-    background-color: color-mix(in srgb, var(--input-bg) 70%, rgba(0, 0, 0, 0.35));
+    border-color: var(--brand);
+    background-color: var(--input-focus-bg);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent);
 }
 
 input[type="date"] {
-    color-scheme: dark;
+    color-scheme: var(--scheme);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
-    filter: invert(0.85);
+    filter: var(--calendar-filter);
     cursor: pointer;
 }
 
+/* Variante de campos: solo línea inferior */
+:root[data-inputs="linea"] .input-group input {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: var(--input-border);
+    border-radius: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
 
+:root[data-inputs="linea"] .input-group input:hover {
+    border-bottom-color: color-mix(in srgb, var(--brand) 50%, transparent);
+}
+
+:root[data-inputs="linea"] .input-group input:focus {
+    background-color: transparent;
+    border-bottom-color: var(--brand);
+    box-shadow: 0 8px 12px -10px color-mix(in srgb, var(--brand) 60%, transparent);
+}
+
+/* Variante de campos: contorno */
+:root[data-inputs="contorno"] .input-group input {
+    background-color: transparent;
+    border-color: var(--input-border);
+}
+
+:root[data-inputs="contorno"] .input-group input:hover {
+    border-color: color-mix(in srgb, var(--brand) 50%, transparent);
+}
+
+:root[data-inputs="contorno"] .input-group input:focus {
+    background-color: transparent;
+    border-color: var(--brand);
+}
+
+/* ---------- Botón ---------- */
 
 .register-btn {
     width: 100%;
     padding: 0;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    margin-top: 16px;
+    background: var(--brand);
     border: none;
-    border-radius: var(--radius-input);
-    margin-top: 14px;
+    border-radius: var(--radius-btn);
     cursor: pointer;
     overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
-    box-shadow: 0 10px 24px -6px color-mix(in srgb, var(--accent) 45%, transparent);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--brand) 70%, transparent);
 }
 
 .register-btn a {
     display: block;
     width: 100%;
-    padding: 15px;
-    color: var(--on-accent);
+    padding: 16px;
+    color: var(--on-brand);
     text-decoration: none;
-    font-size: 15.5px;
+    font-size: 16px;
     font-weight: 700;
     text-align: center;
 }
 
+.register-btn a::after {
+    content: "→";
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.25s ease;
+}
+
 .register-btn:hover {
+    background: var(--brand-hover);
     transform: translateY(-2px);
-    filter: brightness(1.08);
-    box-shadow: 0 14px 28px -6px color-mix(in srgb, var(--accent) 60%, transparent);
+    box-shadow: 0 16px 28px -10px color-mix(in srgb, var(--brand) 80%, transparent);
+}
+
+.register-btn:hover a::after {
+    transform: translateX(5px);
 }
 
 .register-btn:active {
     transform: translateY(0) scale(0.98);
 }
 
-
+/* ---------- Pie ---------- */
 
 .login-footer {
-    margin-top: 24px;
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
     font-size: 14px;
     text-align: center;
 }
@@ -300,26 +404,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .login-footer a {
-    color: var(--accent);
+    color: var(--brand);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     transition: color 0.2s ease;
 }
 
 .login-footer a:hover {
-    color: var(--heading);
     text-decoration: underline;
     text-underline-offset: 3px;
 }
 
+/* ---------- Accesibilidad ---------- */
 
 a:focus-visible,
 .register-btn:focus-within {
-    outline: 3px solid var(--accent);
+    outline: 3px solid var(--brand);
     outline-offset: 3px;
 }
 
-@keyframes aparecer {
+@keyframes subir {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
 }
@@ -329,29 +433,53 @@ a:focus-visible,
     * { transition: none !important; }
 }
 
+/* ============ LADO DEL PANEL (solo escritorio) ============ */
 
+@media (min-width: 951px) {
+    :root[data-lado="derecha"] body {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+
+    :root[data-lado="derecha"] .welcome-text {
+        order: 2;
+    }
+
+    :root[data-lado="derecha"] .welcome-text::before {
+        right: auto;
+        left: -150px;
+    }
+
+    :root[data-lado="derecha"] .welcome-text::after {
+        right: auto;
+        left: 14%;
+    }
+}
+
+/* ============================== Responsive ============================== */
 
 @media (max-width: 950px) {
     body {
-        flex-direction: column;
-        justify-content: center;
-        padding: 40px 20px;
+        grid-template-columns: 1fr;
+        align-items: start;
     }
 
     .welcome-text {
-        position: static;
+        padding: 48px 24px 56px;
         text-align: center;
-        margin-bottom: 32px;
-        max-width: 100%;
+        align-items: center;
+        border-radius: 0 0 36px 36px;
     }
 
     .welcome-text h2 {
         font-size: 38px;
     }
 
+    .welcome-text p {
+        font-size: 16px;
+    }
+
     .register-box {
-        margin: 0 auto;
-        padding: 30px 24px;
+        padding: 36px 24px 48px;
     }
 
     .form-grid {
