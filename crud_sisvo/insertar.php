@@ -1,5 +1,4 @@
 <?php
-// Activar visualización de errores para depuración
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -11,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 try {
-    // Captura segura de datos del formulario
     $nombre   = $_POST["nombre"] ?? '';
     $ci       = $_POST["ci"] ?? '';
     $phone    = $_POST["phone"] ?? '';
@@ -38,7 +36,7 @@ try {
         ":password" => $passwordHash
     ]);
 
-    echo "¡Cuenta creada y guardada exitosamente!" . " <a href='cuenta_nueva.php'>Registrar otro usuario</a>";
+    echo "¡Cuenta creada y guardada exitosamente!" . " <a href='usuario.php'>Registrar otro usuario</a>";
 
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {

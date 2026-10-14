@@ -1,5 +1,4 @@
 <?php
-// Incluimos la conexión desde la  conexion/ usando la ruta relativa
 require_once __DIR__ . "/../config/sisvo_conexion.php";
 
 $sql = "SELECT * FROM nuevo_usu";
@@ -27,7 +26,6 @@ $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
     <div class="register-box">
         <h3>Crear Cuenta</h3>
         
-        <!-- Apunta a insertar.php que está en la misma carpeta crud_sisvo -->
         <form action="insertar.php" method="POST">
             <div class="form-grid">
 
@@ -69,7 +67,8 @@ $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
         </form>
         
         <div class="login-footer">
-            <p>ya tienes una cuenta? <a href="#">Inicia aquí</a></p>
+
+        <p>ya tienes una cuenta? <a href="usuario.php">Inicia aquí</a></p>
         </div>
     </div>
 
