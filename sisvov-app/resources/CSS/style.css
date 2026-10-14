@@ -472,7 +472,6 @@ h1, h2, h3,
   transform: translateY(-1px);
 }
 
-/* ---------- Accesibilidad ---------- */
 .btn:focus-visible,
 .btn-sv:focus-visible,
 .navbar-sisvov .nav-link:focus-visible,
