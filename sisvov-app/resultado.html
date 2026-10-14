@@ -1,25 +1,277 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado - SISVO</title>
+    <title>Resultado - SISVOV</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="resources/CSS/style.css">
+
+    <style>
+        :root {
+            --ink:        #051d2b;   
+            --panel:      #0f1325;   
+            --panel-2:    #151a30;  
+            --line:       #60acf8;  
+            --text:       #f8f6f4;  
+            --muted:      #dbe0dd;   
+            --accent:     #0dc5fd;   
+            --gold:       #f0f4f7;   
+            --gold-light: #029ef8;
+            --gold-deep:  #fffefb;
+            --gold-ink:   #1d1608;   
+            --display: 'Bodoni Moda', 'Didot', 'Bodoni 72', Georgia, serif;
+            --sans:    'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: var(--ink);
+            background-image:
+                radial-gradient(55rem 28rem at 50% -10rem, rgba(120, 135, 220, .15), transparent 70%),
+                radial-gradient(40rem 22rem at 50% 110%, rgba(216, 184, 120, .06), transparent 70%);
+            background-repeat: no-repeat;
+            color: var(--text);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        
+        .nav-sv {
+            background: rgba(7, 49, 83, 0.966);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+        .nav-sv .navbar-brand {
+            font-family: var(--display);
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .nav-sv .navbar-brand span {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent);
+        }
+        .nav-sv .navbar-toggler { border-color: var(--line); }
+        .nav-sv .navbar-toggler:focus { box-shadow: 0 0 0 2px var(--accent); }
+        .nav-sv .nav-link {
+            position: relative;
+            padding: .5rem .8rem;
+            font-size: .92rem;
+            font-weight: 500;
+            color: var(--muted);
+            transition: color .2s ease;
+        }
+        .nav-sv .nav-link:hover,
+        .nav-sv .nav-link:focus-visible { color: var(--text); }
+        .nav-sv .nav-link.active { color: var(--text); }
+        @media (min-width: 992px) {
+            .nav-sv .nav-link.active::after {
+                content: "";
+                position: absolute;
+                left: .8rem; right: .8rem; bottom: .1rem;
+                height: 2px;
+                border-radius: 2px;
+                background: var(--gold);
+            }
+        }
+
+        
+        .tarjeta-sv {
+            position: relative;
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 1.75rem;
+            box-shadow: 0 40px 80px -35px rgba(0, 0, 0, .85);
+            animation: entrar .7s cubic-bezier(.2, .7, .2, 1) both;
+        }
+        .tarjeta-sv::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: .8;
+        }
+        @keyframes entrar {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: none; }
+        }
+
+        
+        .etiqueta-sv {
+            display: inline-block;
+            padding: .35rem .95rem;
+            font-size: .8rem;
+            font-weight: 500;
+            color: var(--gold);
+            border: 1px solid rgba(216, 184, 120, .35);
+            border-radius: 999px;
+        }
+
+        
+        .codigo-sv {
+            margin: 1.1rem 0 0;
+            padding: .05em 0 .05em .12em;   
+            font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+            font-size: clamp(3.8rem, 14vw, 7rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: .12em;
+            color: var(--gold);            
+            background: linear-gradient(180deg, var(--gold-light) 5%, var(--gold) 55%, var(--gold-deep) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 42px rgba(216, 184, 120, .22));
+        }
+
+        .titulo-sv {
+            margin: 1rem 0 0;
+            font-family: var(--display);
+            font-size: clamp(1.5rem, 4.2vw, 2rem);
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: .01em;
+            color: var(--text);
+        }
+
+        .descripcion-sv {
+            max-width: 34rem;
+            margin: 1.75rem auto 0;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(239, 234, 224, .82);
+        }
+
+        
+        .seccion-sv {
+            margin-top: 2.25rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--line);
+            text-align: left;
+        }
+        .seccion-sv h3 {
+            margin: 0 0 1rem;
+            font-family: var(--display);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        #listaCarreras {
+            --bs-list-group-bg: transparent;
+            --bs-list-group-color: var(--text);
+            --bs-list-group-border-color: transparent;
+            display: grid;
+            gap: .6rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #listaCarreras > li {
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            padding: .95rem 1.1rem;
+            font-weight: 500;
+            color: var(--text);
+            background: var(--panel-2);
+            border: 1px solid var(--line);
+            border-radius: .9rem;
+            transition: transform .25s ease, border-color .25s ease, background-color .25s ease;
+        }
+        #listaCarreras > li::before {
+            content: "";
+            flex: none;
+            width: .5rem;
+            height: .5rem;
+            border-radius: 50%;
+            background: var(--gold);
+            box-shadow: 0 0 0 4px rgba(216, 184, 120, .15);
+        }
+        #listaCarreras > li:hover {
+            transform: translateX(4px);
+            border-color: rgba(216, 184, 120, .5);
+            background: #1a2038;
+        }
+
+    
+        .acciones-sv {
+            margin-top: 2rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--line);
+        }
+        .btn-sv {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .55rem;
+            padding: .8rem 1.7rem;
+            font-size: .95rem;
+            font-weight: 600;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+        }
+        .btn-sv svg { transition: transform .2s ease; }
+        .btn-sv:hover svg { transform: translateX(3px); }
+
+        .btn-sv-ghost {
+            color: var(--text);
+            background: transparent;
+            border: 1px solid #343b5e;
+        }
+        .btn-sv-ghost:hover {
+            color: var(--text);
+            border-color: var(--accent);
+            background: rgba(154, 168, 230, .1);
+        }
+        .btn-sv-gold {
+            color: var(--gold-ink);
+            background: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .btn-sv-gold:hover {
+            color: var(--gold-ink);
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        .btn-sv:focus-visible,
+        .nav-sv .nav-link:focus-visible,
+        .nav-sv .navbar-brand:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tarjeta-sv { animation: none; }
+            *, *::before, *::after { transition: none !important; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-sisvov">
+    <nav class="navbar navbar-expand-lg navbar-dark nav-sv sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">SIS<span>VO</span></a>
+            <a class="navbar-brand" href="#">SIS<span>VOV</span></a>
             <button class="navbar-toggler" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                    data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="menuPrincipal">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-1">
                     <li class="nav-item"><a class="nav-link" href="#">Chatbot</a></li>
-                    <li class="nav-item"><a class="nav-link" href="test.html">Test</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="test.html">Test</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Carreras</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Instituciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Convocatorias</a></li>
@@ -31,40 +283,32 @@
 
     <main class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6">
 
-                <div class="card card-sisvov shadow-lg rounded-4 border-0">
-                    <div class="card-body p-4 p-md-5 text-center">
+                <div class="tarjeta-sv">
+                    <div class="p-4 p-md-5 text-center">
 
-                        <span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis mb-3">
-                            Tu resultado
-                        </span>
+                        <span class="etiqueta-sv">Tu resultado</span>
 
-                        <div class="resultado-codigo" id="codigo">----</div>
+                        <div class="codigo-sv" id="codigo">----</div>
 
-                        <h2 class="h4 text-secondary mt-3 mb-4" id="tituloPerfil">
-                            Calculando...
-                        </h2>
+                        <h2 class="titulo-sv" id="tituloPerfil">Calculando...</h2>
 
-                        <div class="alert alert-secondary text-start rounded-3 border-0"
-                             id="descPerfil" role="alert"></div>
+                        <div class="descripcion-sv" id="descPerfil" role="status"></div>
 
-                        <div class="text-start mb-4">
-                            <h6 class="text-secondary text-uppercase small fw-bold mb-3">
-                                Carreras afines
-                            </h6>
-                            <ul class="list-group list-group-flush" id="listaCarreras"></ul>
-                        </div>
+                        <section class="seccion-sv">
+                            <h3>Carreras afines</h3>
+                            <ul id="listaCarreras"></ul>
+                        </section>
 
-                        
-                        <div class="d-flex flex-column flex-sm-row justify-content-center gap-2 pt-3 border-top border-secondary-subtle"
+                        <div class="acciones-sv d-flex flex-column flex-sm-row justify-content-center gap-3"
                              id="accionesResultado">
-                            <a href="test.html" class="btn btn-outline-light rounded-pill px-4">
-                                Repetir test
-                            </a>
-                            <a href="#" class="btn btn-light rounded-pill px-4 fw-semibold"
-                               id="btnVerCarreras">
-                                Ver carreras →
+                            <a href="test.html" class="btn-sv btn-sv-ghost">Repetir test</a>
+                            <a href="#" class="btn-sv btn-sv-gold" id="btnVerCarreras">
+                                Ver carreras
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
                             </a>
                         </div>
 
@@ -77,5 +321,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="resources/JS/resultado.js"></script>
+
 </body>
 </html>
