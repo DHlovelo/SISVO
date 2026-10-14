@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Becas - SISVOV</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="resources/CSS/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-sisvov">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">SIS<span>VOV</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="#">Chatbot</a></li>
+                    <li class="nav-item"><a class="nav-link" href="test.html">Test</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Carreras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Instituciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Convocatorias</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="becas.html">Becas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+
+        <div class="text-center mb-5">
+            <h1 class="h2 fw-bold mb-2">🎓 Becas Disponibles</h1>
+            <p class="text-secondary">Encuentra la beca perfecta para tu futuro. Filtra por tipo o busca por nombre.</p>
+        </div>
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 col-md-8 col-lg-6">
+                <input type="text" id="buscador" class="form-control form-control-lg"
+                       placeholder="Buscar beca o universidad...">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
+            <button type="button" class="btn btn-outline-light rounded-pill px-4 filtro-btn activo" id="filtro-todas">Todas</button>
+            <button type="button" class="btn btn-outline-light rounded-pill px-4 filtro-btn" id="filtro-academica">Académicas</button>
+            <button type="button" class="btn btn-outline-light rounded-pill px-4 filtro-btn" id="filtro-deportiva">Deportivas</button>
+            <button type="button" class="btn btn-outline-light rounded-pill px-4 filtro-btn" id="filtro-social">Sociales</button>
+            <button type="button" class="btn btn-outline-light rounded-pill px-4 filtro-btn" id="filtro-economica">Económicas</button>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4" id="card-1">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-academica">Académica</span>
+                  <span class="badge rounded-pill bg-light text-dark">50%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Excelencia Académica</h5>
+                <p class="text-secondary small mb-3">UNIFRANZ</p>
+                <p class="small flex-grow-1">Dirigida a estudiantes con un rendimiento académico sobresaliente que deseen continuar sus estudios universitarios.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-1" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-2">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-deportiva">Deportiva</span>
+                  <span class="badge rounded-pill bg-light text-dark">30%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Deportiva Destacada</h5>
+                <p class="text-secondary small mb-3">UPB</p>
+                <p class="small flex-grow-1">Para deportistas que representen a su institución o al departamento en competencias oficiales.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-2" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-3">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-social">Social</span>
+                  <span class="badge rounded-pill bg-light text-dark">100%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Social Comunitaria</h5>
+                <p class="text-secondary small mb-3">UCB</p>
+                <p class="small flex-grow-1">Beca completa para estudiantes de bajos recursos que demuestren compromiso con su comunidad.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-3" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-4">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-economica">Económica</span>
+                  <span class="badge rounded-pill bg-light text-dark">40%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Económica Familiar</h5>
+                <p class="text-secondary small mb-3">UNIFRANZ</p>
+                <p class="small flex-grow-1">Ayuda económica destinada a estudiantes cuyos ingresos familiares no superan el salario mínimo.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-4" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-5">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-academica">Académica</span>
+                  <span class="badge rounded-pill bg-light text-dark">25%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Investigación Joven</h5>
+                <p class="text-secondary small mb-3">UMSA</p>
+                <p class="small flex-grow-1">Para estudiantes con interés en investigación científica que deseen participar en proyectos de la universidad.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-5" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-6">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-social">Social</span>
+                  <span class="badge rounded-pill bg-light text-dark">35%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Talento Artístico</h5>
+                <p class="text-secondary small mb-3">UPB</p>
+                <p class="small flex-grow-1">Dirigida a estudiantes con talento artístico (música, danza, teatro, artes visuales) que deseen desarrollarlo mientras estudian.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-6" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-7">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-deportiva">Deportiva</span>
+                  <span class="badge rounded-pill bg-light text-dark">60%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Deportiva Federada</h5>
+                <p class="text-secondary small mb-3">UCB</p>
+                <p class="small flex-grow-1">Para deportistas federados que representen al país en competencias internacionales.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-7" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4" id="card-8">
+            <div class="card card-sisvov border-0 rounded-4 h-100 shadow-sm tarjeta-beca">
+              <div class="card-body d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                  <span class="badge rounded-pill badge-economica">Económica</span>
+                  <span class="badge rounded-pill bg-light text-dark">50%</span>
+                </div>
+                <h5 class="fw-bold mb-1">Beca Económica de Emergencia</h5>
+                <p class="text-secondary small mb-3">UMSA</p>
+                <p class="small flex-grow-1">Apoyo económico temporal para estudiantes que atraviesen situaciones familiares adversas.</p>
+                <button class="btn btn-outline-light rounded-pill mt-3" id="btn-ver-8" type="button">Ver más</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sinResultados" class="text-center py-5 d-none">
+            <div class="display-1 mb-3">😕</div>
+            <h5 class="text-secondary">No se encontraron becas que coincidan</h5>
+            <p class="text-secondary small">Prueba con otra palabra.</p>
+        </div>
+
+        <p class="text-center text-secondary small mt-4" id="contador"></p>
+
+    </main>
+
+    <div class="modal fade" id="modalBeca" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content card-sisvov border-0 rounded-4">
+                <div class="modal-header border-secondary-subtle">
+                    <div>
+                        <span class="badge rounded-pill mb-2" id="modalTipo">Tipo</span>
+                        <h5 class="modal-title fw-bold mb-0" id="modalNombre">Nombre de la beca</h5>
+                        <small class="text-secondary" id="modalUniversidad">Universidad</small>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <div class="display-4 fw-bold" id="modalPorcentaje" style="color: var(--sisvov-acento);">50%</div>
+                        <small class="text-secondary">de descuento</small>
+                    </div>
+                    <h6 class="text-secondary text-uppercase small fw-bold mb-2">Descripción</h6>
+                    <p id="modalDescripcion" class="mb-4"></p>
+                    <h6 class="text-secondary text-uppercase small fw-bold mb-2">Requisitos</h6>
+                    <ul id="modalRequisitos" class="mb-4"></ul>
+                    <div class="alert alert-secondary rounded-3 border-0">
+                        <h6 class="fw-bold mb-2">¿Te interesa esta beca?</h6>
+                        <p class="small mb-3">SISVOV solo te brinda información. Contáctate con la institución para postular y recibir más información.</p>
+                        <div id="modalContacto"></div>
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary-subtle">
+                    <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="resources/JS/becas.js"></script>
+</body>
+</html>

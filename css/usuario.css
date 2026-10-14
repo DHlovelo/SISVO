@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+
+:root {
+    
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --title-size: clamp(38px, 4.6vw, 62px);
+    --title-weight: 800;
+
+   
+    --panel-from: #c92a5b;
+    --panel-to: #ee5a24;
+    --panel-angle: 150deg;
+    --panel-text: #ffffff;
+    --deco-opacity: 0.14;              
+
+    
+    --page-bg: #fffaf6;
+    --text: #2b2430;
+    --heading: #1f1a24;
+    --muted: #6f6577;
+    --line: rgba(43, 36, 48, 0.10);
+
+    
+    --brand: #d6336c;
+    --on-brand: #ffffff;             
+    --brand-hover: color-mix(in srgb, var(--brand) 85%, black);
+
+   
+    --input-bg: #f4ede8;
+    --input-focus-bg: #ffffff;
+    --input-border: rgba(43, 36, 48, 0.18);
+    --placeholder: #a2989b;
+    --radius-input: 12px;
+    --radius-btn: 999px;
+    --form-gap: 18px 16px;
+    --scheme: light;                  
+    --calendar-filter: none;
+
+ 
+    --cols: minmax(0, 1fr) minmax(0, 1.1fr);   
+    --card-max: 500px;
+    --card-padding: 56px 48px;
+}
+
+
+
+:root[data-theme="oceano"] {
+    --panel-from: #0b5f8a;
+    --panel-to: #168f95;
+    --brand: #0f7ea6;
+    --page-bg: #f4fafc;
+    --text: #16303a;
+    --heading: #0e2630;
+    --muted: #5d7480;
+    --input-bg: #e8f1f5;
+    --placeholder: #93a8b2;
+}
+
+:root[data-theme="bosque"] {
+    --panel-from: #14532d;
+    --panel-to: #3d8b37;
+    --brand: #1f7a3f;
+    --page-bg: #f6faf5;
+    --text: #1d2e22;
+    --heading: #12231a;
+    --muted: #65796b;
+    --input-bg: #ecf3ea;
+    --placeholder: #98aa9c;
+}
+
+:root[data-theme="uva"] {
+    --panel-from: #4a2fbd;
+    --panel-to: #9b4de0;
+    --brand: #6a3de8;
+    --page-bg: #faf7ff;
+    --text: #2a2340;
+    --heading: #1c1632;
+    --muted: #70688a;
+    --input-bg: #f0eafa;
+    --placeholder: #a29bb8;
+}
+
+:root[data-theme="sol"] {
+    --panel-from: #ffb703;
+    --panel-to: #ff8a00;
+    --panel-text: #2a1d00;
+    --brand: #ffb703;
+    --on-brand: #2a1d00;
+    --page-bg: #fffcf2;
+    --text: #2e2710;
+    --heading: #221b08;
+    --muted: #7a6f52;
+    --input-bg: #f7f0dc;
+    --placeholder: #aa9f80;
+}
+
+:root[data-theme="noche"] {
+    --panel-from: #1f2a5a;
+    --panel-to: #4b2a7a;
+    --deco-opacity: 0.10;
+    --page-bg: #12131a;
+    --text: #eceaf5;
+    --heading: #ffffff;
+    --muted: #a3a7c4;
+    --line: rgba(255, 255, 255, 0.10);
+    --brand: #8ab4ff;
+    --on-brand: #0b1030;
+    --input-bg: rgba(255, 255, 255, 0.07);
+    --input-focus-bg: rgba(255, 255, 255, 0.11);
+    --input-border: rgba(255, 255, 255, 0.20);
+    --placeholder: #7479a0;
+    --scheme: dark;
+    --calendar-filter: invert(0.85);
+}
+
+/* ======================= ESQUINAS Y DECORACIÓN ======================= */
+
+:root[data-esquinas="rectas"] {
+    --radius-input: 4px;
+    --radius-btn: 4px;
+}
+
+:root[data-esquinas="redondas"] {
+    --radius-input: 18px;
+    --radius-btn: 999px;
+}
+
+:root[data-decoracion="no"] .welcome-text::before,
+:root[data-decoracion="no"] .welcome-text::after {
+    display: none;
+}
+
+/* ============================ ESTILOS BASE ============================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font);
+}
+
+::selection {
+    background: color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+body {
+    background: var(--page-bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: var(--cols);
+    align-items: stretch;
+    overflow-x: hidden;
+}
+
+/* ---------- Panel de color / bienvenida ---------- */
+
+.welcome-text {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 64px;
+    max-width: none;
+    background: linear-gradient(var(--panel-angle), var(--panel-from) 0%, var(--panel-to) 100%);
+    color: var(--panel-text);
+}
+
+.welcome-text::before,
+.welcome-text::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.welcome-text::before {
+    width: 440px;
+    height: 440px;
+    right: -150px;
+    bottom: -150px;
+    background: #ffffff;
+    opacity: var(--deco-opacity);
+}
+
+.welcome-text::after {
+    width: 190px;
+    height: 190px;
+    top: -70px;
+    right: 14%;
+    border: 30px solid #ffffff;
+    opacity: var(--deco-opacity);
+}
+
+.welcome-text > * {
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-text h2 {
+    font-size: var(--title-size);
+    font-weight: var(--title-weight);
+    line-height: 1.05;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    color: var(--panel-text);
+}
+
+.welcome-text p {
+    font-size: 18px;
+    line-height: 1.7;
+    font-weight: 500;
+    max-width: 420px;
+    color: var(--panel-text);
+    opacity: 0.92;
+}
+
+/* ---------- Formulario ---------- */
+
+.register-box {
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+    max-width: var(--card-max);
+    padding: var(--card-padding);
+    background: transparent;
+    animation: subir 0.6s ease-out both;
+}
+
+.register-box h3 {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--heading);
+    letter-spacing: -0.5px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.register-box h3::after {
+    content: "";
+    display: block;
+    width: 52px;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--brand), var(--panel-to));
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--form-gap);
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.input-group label {
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 0.2px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid transparent;
+    border-radius: var(--radius-input);
+    outline: none;
+    background-color: var(--input-bg);
+    color: var(--text);
+    font-size: 15px;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.input-group input::placeholder {
+    color: var(--placeholder);
+}
+
+.input-group input:hover {
+    border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+}
+
+.input-group input:focus {
+    border-color: var(--brand);
+    background-color: var(--input-focus-bg);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 16%, transparent);
+}
+
+input[type="date"] {
+    color-scheme: var(--scheme);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: var(--calendar-filter);
+    cursor: pointer;
+}
+
+/* Variante de campos: solo línea inferior */
+:root[data-inputs="linea"] .input-group input {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: var(--input-border);
+    border-radius: 0;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+:root[data-inputs="linea"] .input-group input:hover {
+    border-bottom-color: color-mix(in srgb, var(--brand) 50%, transparent);
+}
+
+:root[data-inputs="linea"] .input-group input:focus {
+    background-color: transparent;
+    border-bottom-color: var(--brand);
+    box-shadow: 0 8px 12px -10px color-mix(in srgb, var(--brand) 60%, transparent);
+}
+
+/* Variante de campos: contorno */
+:root[data-inputs="contorno"] .input-group input {
+    background-color: transparent;
+    border-color: var(--input-border);
+}
+
+:root[data-inputs="contorno"] .input-group input:hover {
+    border-color: color-mix(in srgb, var(--brand) 50%, transparent);
+}
+
+:root[data-inputs="contorno"] .input-group input:focus {
+    background-color: transparent;
+    border-color: var(--brand);
+}
+
+/* ---------- Botón ---------- */
+
+.register-btn {
+    width: 100%;
+    padding: 0;
+    margin-top: 16px;
+    background: var(--brand);
+    border: none;
+    border-radius: var(--radius-btn);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--brand) 70%, transparent);
+}
+
+.register-btn a {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    color: var(--on-brand);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.register-btn a::after {
+    content: "→";
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.25s ease;
+}
+
+.register-btn:hover {
+    background: var(--brand-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px -10px color-mix(in srgb, var(--brand) 80%, transparent);
+}
+
+.register-btn:hover a::after {
+    transform: translateX(5px);
+}
+
+.register-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* ---------- Pie ---------- */
+
+.login-footer {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    text-align: center;
+}
+
+.login-footer p {
+    color: var(--muted);
+}
+
+.login-footer a {
+    color: var(--brand);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s ease;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* ---------- Accesibilidad ---------- */
+
+a:focus-visible,
+.register-btn:focus-within {
+    outline: 3px solid var(--brand);
+    outline-offset: 3px;
+}
+
+@keyframes subir {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .register-box { animation: none; }
+    * { transition: none !important; }
+}
+
+/* ============ LADO DEL PANEL (solo escritorio) ============ */
+
+@media (min-width: 951px) {
+    :root[data-lado="derecha"] body {
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+
+    :root[data-lado="derecha"] .welcome-text {
+        order: 2;
+    }
+
+    :root[data-lado="derecha"] .welcome-text::before {
+        right: auto;
+        left: -150px;
+    }
+
+    :root[data-lado="derecha"] .welcome-text::after {
+        right: auto;
+        left: 14%;
+    }
+}
+
+/* ============================== Responsive ============================== */
+
+@media (max-width: 950px) {
+    body {
+        grid-template-columns: 1fr;
+        align-items: start;
+    }
+
+    .welcome-text {
+        padding: 48px 24px 56px;
+        text-align: center;
+        align-items: center;
+        border-radius: 0 0 36px 36px;
+    }
+
+    .welcome-text h2 {
+        font-size: 38px;
+    }
+
+    .welcome-text p {
+        font-size: 16px;
+    }
+
+    .register-box {
+        padding: 36px 24px 48px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
