@@ -15,7 +15,6 @@ $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Subimos un nivel para encontrar la carpeta css/ -->
     <link rel="stylesheet" href="../css/nuevo_usu.css">
 </head>
 <body>
@@ -64,7 +63,6 @@ $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
             </div>
             
-            <!-- Botón adaptado para enviar el formulario manteniendo intacto tu CSS -->
             <button type="submit" class="register-btn">
                 <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">Registrarse</a>
             </button>
@@ -73,39 +71,6 @@ $usuarios = $resultado->fetchAll(PDO::FETCH_ASSOC);
         <div class="login-footer">
             <p>ya tienes una cuenta? <a href="#">Inicia aquí</a></p>
         </div>
-    </div>
-
-    <!-- Sección de la lista de usuarios (siguiendo el patrón del CRUD de la escuela) -->
-    <div style="width: 80%; max-width: 900px; margin: 40px auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-        <h3 style="margin-bottom: 15px; color: #333;">Lista de Usuarios Registrados</h3>
-        <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse; text-align: left;">
-            <thead>
-                <tr style="background-color: #f4f6f8; color: #333;">
-                    <th>Cédula (CI)</th>
-                    <th>Nombre Completo</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>Fecha de Nacimiento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($usuarios)): ?>
-                    <?php foreach ($usuarios as $usuario): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($usuario["CI_usu"]); ?></td>
-                            <td><?php echo htmlspecialchars($usuario["nombre_c_usu"]); ?></td>
-                            <td><?php echo htmlspecialchars($usuario["telefono"]); ?></td>
-                            <td><?php echo htmlspecialchars($usuario["correo"]); ?></td>
-                            <td><?php echo htmlspecialchars($usuario["fecha_nacimiento"]); ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="5" style="text-align: center; color: #777;">No hay usuarios registrados.</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
     </div>
 
 </body>

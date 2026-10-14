@@ -19,14 +19,12 @@ try {
     $fena     = $_POST["fena"] ?? '';
     $password = $_POST["password"] ?? '';
 
-    // Validar que no estén vacíos
     if (empty($nombre) || empty($ci) || empty($phone) || empty($correo) || empty($fena) || empty($password)) {
         die("Error: Todos los campos son obligatorios. <a href='cuenta_nueva.php'>Volver</a>");
     }
 
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);    
 
-    // Consulta SQL adaptada a tu tabla 'nuevo_usu'
     $sql = "INSERT INTO nuevo_usu (CI_usu, nombre_c_usu, telefono, correo, fecha_nacimiento, contrasena)
             VALUES (:ci, :nombre, :phone, :correo, :fena, :password)";
 
@@ -40,7 +38,7 @@ try {
         ":password" => $passwordHash
     ]);
 
-    echo "¡Cuenta creada y guardada exitosamente! <a href='cuenta_nueva.php'>Registrar otro usuario</a>";
+    echo "¡Cuenta creada y guardada exitosamente!" . " <a href='cuenta_nueva.php'>Registrar otro usuario</a>";
 
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
