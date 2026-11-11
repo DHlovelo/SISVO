@@ -22,7 +22,7 @@ try {
         die("Error: Todos los campos son obligatorios. <a href='cuenta_nueva.php'>Volver</a>");
     }
 
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);    
 
     $sql = "INSERT INTO nuevo_usu (CI_usu, nombre_c_usu, telefono, correo, fecha_nacimiento, contrasena)
             VALUES (:ci, :nombre, :phone, :correo, :fena, :password)";
@@ -37,12 +37,12 @@ try {
         ":password" => $passwordHash
     ]);
 
- 
+    // Correo de bienvenida (si falla, la cuenta igual queda creada)
     $enviado = enviarCorreo($correo, $nombre, "Bienvenido a SISVO", plantillaBienvenida($nombre));
 
     echo "¡Cuenta creada y guardada exitosamente!"
         . ($enviado ? " Te enviamos un correo de bienvenida." : " (No pudimos enviar el correo de bienvenida.)")
-        . " <a href='usuario.php'>Registrar otro usuario</a>";
+        . " <a href='../cuenta_nueva.html'>Registrar otro usuario</a>";
 
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
