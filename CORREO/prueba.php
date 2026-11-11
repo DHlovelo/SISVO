@@ -1,10 +1,5 @@
 <?php
-/**
- * Prueba rápida. Abre en el navegador:
- *   http://localhost/sisvov/SISVO-main/correo/probar.php?to=tucorreo@gmail.com
- *
- * Bórralo cuando termines de probar.
- */
+
 
 if (!in_array($_SERVER['REMOTE_ADDR'] ?? '', ['127.0.0.1', '::1'], true)) {
     http_response_code(403);
