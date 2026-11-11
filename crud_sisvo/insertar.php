@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once __DIR__ . "/../config/sisvo_conexion.php";
-require_once __DIR__ . "/../CORREO/CORREO/Mailer.php";
+require_once __DIR__ . "/../CORREO/Mailer.php";
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit("Acceso no válido al formulario.");
