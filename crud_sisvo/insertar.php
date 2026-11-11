@@ -4,6 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once __DIR__ . "/../config/sisvo_conexion.php";
+require_once __DIR__ . "/../CORREO/CORREO/Mailer.php";
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit("Acceso no válido al formulario.");
@@ -21,7 +22,7 @@ try {
         die("Error: Todos los campos son obligatorios. <a href='cuenta_nueva.php'>Volver</a>");
     }
 
-    $passwordHash = password_hash($password, PASSWORD_DEFAULT);    
+    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO nuevo_usu (CI_usu, nombre_c_usu, telefono, correo, fecha_nacimiento, contrasena)
             VALUES (:ci, :nombre, :phone, :correo, :fena, :password)";
@@ -36,7 +37,12 @@ try {
         ":password" => $passwordHash
     ]);
 
-    echo "¡Cuenta creada y guardada exitosamente!" . " <a href='usuario.php'>Registrar otro usuario</a>";
+ 
+    $enviado = enviarCorreo($correo, $nombre, "Bienvenido a SISVO", plantillaBienvenida($nombre));
+
+    echo "¡Cuenta creada y guardada exitosamente!"
+        . ($enviado ? " Te enviamos un correo de bienvenida." : " (No pudimos enviar el correo de bienvenida.)")
+        . " <a href='usuario.php'>Registrar otro usuario</a>";
 
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
