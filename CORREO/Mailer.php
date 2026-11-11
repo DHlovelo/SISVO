@@ -1,16 +1,10 @@
 <?php
-/**
- * correo/mailer.php - Envío de correos para SISVO (PHPMailer + SMTP)
- *
- * Uso desde cualquier archivo PHP del proyecto:
- *   require_once __DIR__ . "/../correo/mailer.php";
- *   enviarCorreo("alguien@correo.com", "Nombre", "Asunto", "<p>Hola</p>");
- */
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Busca "vendor" dentro de SISVO-main o una carpeta más arriba (sisvov/)
+
 $rutasAutoload = [
     __DIR__ . "/../vendor/autoload.php",
     __DIR__ . "/../../vendor/autoload.php",
@@ -27,10 +21,7 @@ if (!$autoloadEncontrado) {
     error_log("[SISVO mail] No se encontró vendor/autoload.php (¿falta composer require phpmailer/phpmailer?)");
 }
 
-/**
- * Envía un correo. Devuelve true si se envió, false si falló
- * (el detalle del error queda en el log de PHP, no se muestra al usuario).
- */
+
 function enviarCorreo(
     string $destinatario,
     string $nombreDestino,
@@ -72,9 +63,7 @@ function enviarCorreo(
     }
 }
 
-/**
- * Plantilla HTML del correo de bienvenida.
- */
+
 function plantillaBienvenida(string $nombre): string
 {
     $nombre = htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');
